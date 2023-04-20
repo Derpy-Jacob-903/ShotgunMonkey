@@ -31,11 +31,11 @@ public class ShotgunMonkeyMod : BloonsTD6Mod
         public override TowerSet TowerSet => TowerSet.Support;
         public override string BaseTower => TowerType.DartMonkey;
         public override int Cost => 450; //400+250-
-        public override string Description => "Shotgun Monkey.";
+        public override string Description => "A monkey w. ";
         public override string DisplayName => "Shotgun Monkey";
         public override int TopPathUpgrades => 1;
         public override int MiddlePathUpgrades => 0;
-        public override int BottomPathUpgrades => 0;
+        public override int BottomPathUpgrades => 1;
         //public override ParagonMode ParagonMode => ParagonMode.Base555;
         public override void ModifyBaseTowerModel(TowerModel towerModel)
         {
@@ -47,9 +47,10 @@ public class ShotgunMonkeyMod : BloonsTD6Mod
             var attackModel = towerModel.GetAttackModel();
             attackModel.range = 15;
             
-            attackModel.weapons[0] = Game.instance.model.GetTowerFromId("Druid-010").GetAttackModel().weapons[0].Duplicate();
+            //attackModel.weapons[0] = Game.instance.model.GetTowerFromId("Druid-010").GetAttackModel().weapons[0].Duplicate();
             //attackModel.AddWeapon(Game.instance.model.GetTowerFromId("Sauda").GetAttackModel().weapons[0].Duplicate());
-            towerModel.GetWeapon().emission = new RandomEmissionModel("RandomEmissionModel_", 8, 0, 45, null, false);
+            towerModel.GetWeapon().emission = new RandomEmissionModel("RandomEmissionModel_", 8, 0, 35, null, false);
+            towerModel.GetWeapon().rate = Game.instance.model.GetTowerFromId("SniperMonkey").GetAttackModel().weapons[0] * 2f;
             ///
             "emission": {
             "angle": 35.0,
@@ -112,24 +113,24 @@ namespace ShotgunMonkey.Upgrades
         {
             var attackModel = towerModel.GetAttackModel();
             var projectile = attackModel.weapons[0].projectile;
-            towerModel.GetAttackModel().weapons[0].projectile.GetDamageModel().immuneBloonProperties = BloonProperties.Lead;
+            towerModel.GetAttackModel().weapons[0].projectile.GetDamageModel().immuneBloonProperties = BloonProperties.None;
         }
     }
     public class FMJ : ModUpgrade<ShotgunMonkeyMod.ShotgunMonkey>
     { 
-        public override int Path => TOP;
+        public override int Path => BOTTOM;
         public override int Tier => 1;
         public override int Cost => 360; //140+220
         //public override string Portrait => "BlitzaPortrait";
         public override SpriteReference IconReference => Game.instance.model.GetTowerFromId("MonkeyAce").GetUpgrade(BOTTOM, 1).icon;
-        public override string Description => "Pellets can pop Lead Bloons";
+        public override string Description => "Fires faster";
         //public override string DisplayName => "FMJ";
 
         public override void ApplyUpgrade(TowerModel towerModel)
         {
             var attackModel = towerModel.GetAttackModel();
             var projectile = attackModel.weapons[0].projectile;
-            towerModel.GetAttackModel().weapons[0].projectile.GetDamageModel().immuneBloonProperties = BloonProperties.Lead;
+            towerModel.GetWeapon().rate *= 0.9f;
         }
     }
 }
