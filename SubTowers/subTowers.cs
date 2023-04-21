@@ -17,7 +17,7 @@ using UnityEngine.UIElements;
 namespace ShotgunMonkey.subTowers;
     public class TestSet : ModTowerSet
         {
-            public override string DisplayName => "Pokemon";
+            public override string DisplayName => "Test";
             public override string Container => "PokemonContainer";
             public override string Button => "PokemonButton";
             public override string ContainerLarge => "PokemonContainer";
@@ -25,15 +25,15 @@ namespace ShotgunMonkey.subTowers;
         }
     public class ShotgunSentry : ModTower
     {
-        public override string Name => "Shotgun Monkey";
+        //public override string Name => "Shotgun Monkey";
         public override TowerSet TowerSet => TowerSet.Support;
-        public override string BaseTower => ShotgunMonkey;
+        public override string BaseTower => TowerType.DartMonkey;;
         public override int Cost => 450; //400+250-
         public override string Description => "Shotgun Monkey.";
-        public override string DisplayName => "ShotgunSentry";
-        public override int TopPathUpgrades => 3;
-        public override int MiddlePathUpgrades => 3;
-        public override int BottomPathUpgrades => 3;
+        public override string DisplayName => "Shotgun Sentry";
+        public override int TopPathUpgrades => 0;
+        public override int MiddlePathUpgrades => 0;
+        public override int BottomPathUpgrades => 0;
         public override string Icon => VanillaSprites.SentryPortrait;
         public override string Portrait => VanillaSprites.SentryPortrait;
         //public override ParagonMode ParagonMode => ParagonMode.Base555;
@@ -42,7 +42,7 @@ namespace ShotgunMonkey.subTowers;
 
             //towerModel.GetBehavior<DisplayModel>().display = towerModel.display;
             //towerModel.ApplyDisplay<TowerDisplays.Display000>();
-            //Game.instance.model.GetTower("SniperMonkey").display.GUID
+            //Game.instance.model.GetTower("Sentry").display.GUID
 
             towerModel.range = 20;
 
@@ -54,6 +54,167 @@ namespace ShotgunMonkey.subTowers;
             attackModel.weapons[0].projectile = Game.instance.model.GetTowerFromId("SniperMonkey-020").GetAttackModel().GetDescendant<ProjectileModel>().GetDescendant<EmitOnDamageModel>().GetDescendant<ProjectileModel>().Duplicate(); //Gets the
             towerModel.GetWeapon().emission = new RandomEmissionModel("RandomEmissionModel_", 8, 60f, 0f, null, false, 1f, 1f, 1f, false);
             towerModel.GetWeapon().rate = Game.instance.model.GetTowerFromId("SniperMonkey").GetAttackModel().weapons[0].rate;
+        }
+
+        public override bool IsValidCrosspath(int[] tiers) => ModHelper.HasMod("Ultimate Crosspathing") ? true : base.IsValidCrosspath(tiers);
+    }
+    public class BuckshotSentry : ModTower
+    {
+        //public override string Name => "Shotgun Monkey";
+        public override TowerSet TowerSet => TowerSet.Support;
+        public override string BaseTower => TowerType.DartMonkey;;
+        public override int Cost => 450; //400+250-
+        public override string Description => "Shotgun Monkey.";
+        public override string DisplayName => "Buckshot Sentry";
+        public override int TopPathUpgrades => 0;
+        public override int MiddlePathUpgrades => 0;
+        public override int BottomPathUpgrades => 0;
+        public override string Icon => VanillaSprites.SentryPortrait;
+        public override string Portrait => VanillaSprites.SentryPortrait;
+        //public override ParagonMode ParagonMode => ParagonMode.Base555;
+        public override void ModifyBaseTowerModel(TowerModel towerModel)
+        {
+
+            //towerModel.GetBehavior<DisplayModel>().display = towerModel.display;
+            //towerModel.ApplyDisplay<TowerDisplays.Display000>();
+            //Game.instance.model.GetTower("Sentry").display.GUID
+
+            towerModel.range = 20;
+
+            var attackModel = towerModel.GetAttackModel();
+            attackModel.range = 20;
+            var projectileModel = towerModel.GetAttackModel().GetDescendant<ProjectileModel>();
+            var projectile = attackModel.weapons[0].projectile;
+
+            attackModel.weapons[0].projectile = Game.instance.model.GetTowerFromId("SniperMonkey-020").GetAttackModel().GetDescendant<ProjectileModel>().GetDescendant<EmitOnDamageModel>().GetDescendant<ProjectileModel>().Duplicate(); //Gets the
+            towerModel.GetWeapon().emission = new RandomEmissionModel("RandomEmissionModel_", 5, 60f, 0f, null, false, 1f, 1f, 1f, false); //-3
+            towerModel.GetWeapon().rate = Game.instance.model.GetTowerFromId("SniperMonkey").GetAttackModel().weapons[0].rate;
+            projectile.pierce += 1;
+            var fireProjectile = Game.instance.model.GetTowerFromId("DartlingGunner-003").GetAttackModel().weapons[0].projectile.Duplicate();
+            projectile.AddBehavior(fireProjectile.GetBehavior<Knockback>());
+            //projectile.GetDamageModel().immuneBloonProperties = BloonProperties.Purple;
+            projectile.ApplyDisplay<BuckDisplay>();
+        }
+
+        public override bool IsValidCrosspath(int[] tiers) => ModHelper.HasMod("Ultimate Crosspathing") ? true : base.IsValidCrosspath(tiers);
+    }
+    public class SlugSentry : ModTower
+    {
+        //public override string Name => "Shotgun Monkey";
+        public override TowerSet TowerSet => TowerSet.Support;
+        //public override string BaseTower => TowerType.DartMonkey;;
+        public override int Cost => 450; //400+250-
+        public override string Description => "Fires long-range Slugs";
+        public override string DisplayName => "Slug Sentry";
+        public override int TopPathUpgrades => 0;
+        public override int MiddlePathUpgrades => 0;
+        public override int BottomPathUpgrades => 0;
+        public override string Icon => VanillaSprites.SentryPortrait;
+        public override string Portrait => VanillaSprites.SentryPortrait;
+        //public override ParagonMode ParagonMode => ParagonMode.Base555;
+        public override void ModifyBaseTowerModel(TowerModel towerModel)
+        {
+
+            //towerModel.GetBehavior<DisplayModel>().display = towerModel.display;
+            //towerModel.ApplyDisplay<TowerDisplays.Display000>();
+            //Game.instance.model.GetTower("Sentry").display.GUID
+            towerModel.range = 20;
+
+            var attackModel = towerModel.GetAttackModel();
+            attackModel.range = 20;
+            var projectileModel = towerModel.GetAttackModel().GetDescendant<ProjectileModel>();
+            var projectile = attackModel.weapons[0].projectile;
+
+            attackModel.weapons[0].projectile = Game.instance.model.GetTowerFromId("SniperMonkey-020").GetAttackModel().GetDescendant<ProjectileModel>().GetDescendant<EmitOnDamageModel>().GetDescendant<ProjectileModel>().Duplicate(); //Gets the
+            projectile.pierce = 8;
+            //towerModel.GetWeapon().emission = new RandomEmissionModel("RandomEmissionModel_", 8, 60f, 0f, null, false, 1f, 1f, 1f, false);
+            towerModel.GetWeapon().rate = Game.instance.model.GetTowerFromId("SniperMonkey").GetAttackModel().weapons[0].rate;
+            projectile.GetBehavior<TravelStraitModel>().Lifespan *= 3;
+            projectile.ApplyDisplay<SlugDisplay>();
+            
+        }
+
+        public override bool IsValidCrosspath(int[] tiers) => ModHelper.HasMod("Ultimate Crosspathing") ? true : base.IsValidCrosspath(tiers);
+    }
+    public class ExSlugSentry : ModTower
+    {
+        //public override string Name => "Shotgun Monkey";
+        public override TowerSet TowerSet => TowerSet.Support;
+        //public override string BaseTower => TowerType.DartMonkey;;
+        public override int Cost => 450; //400+250-
+        public override string Description => "Fires long-range Slugs";
+        public override string DisplayName => "Ex. Slug Sentry";
+        public override int TopPathUpgrades => 0;
+        public override int MiddlePathUpgrades => 0;
+        public override int BottomPathUpgrades => 0;
+        public override string Icon => VanillaSprites.SentryPortrait;
+        public override string Portrait => VanillaSprites.SentryPortrait;
+        //public override ParagonMode ParagonMode => ParagonMode.Base555;
+        public override void ModifyBaseTowerModel(TowerModel towerModel)
+        {
+
+            //towerModel.GetBehavior<DisplayModel>().display = towerModel.display;
+            //towerModel.ApplyDisplay<TowerDisplays.Display000>();
+            //Game.instance.model.GetTower("Sentry").display.GUID
+            towerModel.range = 20;
+
+            var attackModel = towerModel.GetAttackModel();
+            attackModel.range = 20;
+            var projectileModel = towerModel.GetAttackModel().GetDescendant<ProjectileModel>();
+            var projectile = attackModel.weapons[0].projectile;
+
+            attackModel.weapons[0].projectile = Game.instance.model.GetTowerFromId("SniperMonkey-020").GetAttackModel().GetDescendant<ProjectileModel>().GetDescendant<EmitOnDamageModel>().GetDescendant<ProjectileModel>().Duplicate(); //Gets the
+            projectile.pierce = 1;
+            //towerModel.GetWeapon().emission = new RandomEmissionModel("RandomEmissionModel_", 8, 60f, 0f, null, false, 1f, 1f, 1f, false);
+            towerModel.GetWeapon().rate = Game.instance.model.GetTowerFromId("SniperMonkey").GetAttackModel().weapons[0].rate;
+            projectile.GetBehavior<TravelStraitModel>().Lifespan *= 3;
+            var fireProjectile = Game.instance.model.GetTowerFromId("BombShooter-200").GetAttackModel().weapons[0].projectile.Duplicate();
+            projectile.AddBehavior(fireProjectile.GetBehavior<CreateProjectileOnContactModel>());
+            projectile.ApplyDisplay<FireDisplay>();
+            
+            projectile.ApplyDisplay<BombDisplay>();
+            
+        }
+
+        public override bool IsValidCrosspath(int[] tiers) => ModHelper.HasMod("Ultimate Crosspathing") ? true : base.IsValidCrosspath(tiers);
+    }
+    public class DragonsBreathSentry : ModTower
+    {
+        //public override string Name => "Shotgun Monkey";
+        public override TowerSet TowerSet => TowerSet.Support;
+        //public override string BaseTower => TowerType.DartMonkey;;
+        public override int Cost => 450; //400+250-
+        public override string Description => "Fires incendiary ammunition, burning Bloons over time.\nCan't pop Purple Bloons";
+        public override string DisplayName => "Incendiary Shotgun Sentry";
+        public override int TopPathUpgrades => 0;
+        public override int MiddlePathUpgrades => 0;
+        public override int BottomPathUpgrades => 0;
+        public override string Icon => VanillaSprites.SentryPortrait;
+        public override string Portrait => VanillaSprites.SentryPortrait;
+        //public override ParagonMode ParagonMode => ParagonMode.Base555;
+        public override void ModifyBaseTowerModel(TowerModel towerModel)
+        {
+
+            //towerModel.GetBehavior<DisplayModel>().display = towerModel.display;
+            //towerModel.ApplyDisplay<TowerDisplays.Display000>();
+            //Game.instance.model.GetTower("Sentry").display.GUID
+            towerModel.range = 20;
+
+            var attackModel = towerModel.GetAttackModel();
+            attackModel.range = 20;
+            var projectileModel = towerModel.GetAttackModel().GetDescendant<ProjectileModel>();
+            var projectile = attackModel.weapons[0].projectile;
+
+            attackModel.weapons[0].projectile = Game.instance.model.GetTowerFromId("SniperMonkey-020").GetAttackModel().GetDescendant<ProjectileModel>().GetDescendant<EmitOnDamageModel>().GetDescendant<ProjectileModel>().Duplicate(); //Gets the
+            //projectile.pierce = 8;
+            towerModel.GetWeapon().emission = new RandomEmissionModel("RandomEmissionModel_", 8, 60f, 0f, null, false, 1f, 1f, 1f, false);
+            towerModel.GetWeapon().rate = Game.instance.model.GetTowerFromId("SniperMonkey").GetAttackModel().weapons[0].rate;
+            
+            var fireProjectile = Game.instance.model.GetTowerFromId("Gwendolin 6").GetAttackModel().weapons[0].projectile.Duplicate();
+            projectile.AddBehavior(fireProjectile.GetBehavior<AddBehaviorToBloonModel>());
+            projectile.GetDamageModel().immuneBloonProperties = BloonProperties.Purple;
+            projectile.ApplyDisplay<FireDisplay>();
+            
         }
 
         public override bool IsValidCrosspath(int[] tiers) => ModHelper.HasMod("Ultimate Crosspathing") ? true : base.IsValidCrosspath(tiers);
