@@ -27,7 +27,7 @@ namespace ShotgunMonkey.subTowers;
     {
         //public override string Name => "Shotgun Monkey";
         public override TowerSet TowerSet => TowerSet.Support;
-        public override string BaseTower => TowerType.DartMonkey;;
+        public override string BaseTower => TowerType.DartMonkey;;\
         public override int Cost => 450; //400+250-
         public override string Description => "Shotgun Monkey.";
         public override string DisplayName => "Shotgun Sentry";
@@ -62,7 +62,7 @@ namespace ShotgunMonkey.subTowers;
     {
         //public override string Name => "Shotgun Monkey";
         public override TowerSet TowerSet => TowerSet.Support;
-        public override string BaseTower => TowerType.DartMonkey;;
+        public override string BaseTower => TowerType.DartMonkey;
         public override int Cost => 450; //400+250-
         public override string Description => "Shotgun Monkey.";
         public override string DisplayName => "Buckshot Sentry";
@@ -102,7 +102,7 @@ namespace ShotgunMonkey.subTowers;
     {
         //public override string Name => "Shotgun Monkey";
         public override TowerSet TowerSet => TowerSet.Support;
-        //public override string BaseTower => TowerType.DartMonkey;;
+        //public override string BaseTower => TowerType.DartMonkey;
         public override int Cost => 450; //400+250-
         public override string Description => "Fires long-range Slugs";
         public override string DisplayName => "Slug Sentry";
@@ -140,7 +140,7 @@ namespace ShotgunMonkey.subTowers;
     {
         //public override string Name => "Shotgun Monkey";
         public override TowerSet TowerSet => TowerSet.Support;
-        //public override string BaseTower => TowerType.DartMonkey;;
+        //public override string BaseTower => TowerType.DartMonkey;
         public override int Cost => 450; //400+250-
         public override string Description => "Fires long-range Slugs";
         public override string DisplayName => "Ex. Slug Sentry";
@@ -181,7 +181,7 @@ namespace ShotgunMonkey.subTowers;
     {
         //public override string Name => "Shotgun Monkey";
         public override TowerSet TowerSet => TowerSet.Support;
-        //public override string BaseTower => TowerType.DartMonkey;;
+        //public override string BaseTower => TowerType.DartMonkey;
         public override int Cost => 450; //400+250-
         public override string Description => "Fires incendiary ammunition, burning Bloons over time.\nCan't pop Purple Bloons";
         public override string DisplayName => "Incendiary Shotgun Sentry";
@@ -222,7 +222,7 @@ namespace ShotgunMonkey.subTowers;
     {
         //public override string Name => "Shotgun Monkey";
         public override TowerSet TowerSet => TowerSet.Support;
-        //public override string BaseTower => TowerType.DartMonkey;;
+        //public override string BaseTower => TowerType.DartMonkey;
         public override int Cost => 450; //400+250-
         public override string Description => "Fires long-range Slugs";
         public override string DisplayName => "Thermal Sentry";
@@ -265,7 +265,7 @@ namespace ShotgunMonkey.subTowers;
     {
         //public override string Name => "Shotgun Monkey";
         public override TowerSet TowerSet => TowerSet.Support;
-        //public override string BaseTower => TowerType.DartMonkey;;
+        //public override string BaseTower => TowerType.DartMonkey;
         public override int Cost => 450; //400+250-
         public override string Description => "Fires incendiary ammunition, burning Bloons over time.\nCan't pop Purple Bloons";
         public override string DisplayName => "Incendiary Shotgun Sentry";
