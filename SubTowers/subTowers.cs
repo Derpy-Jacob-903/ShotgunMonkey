@@ -27,7 +27,7 @@ namespace ShotgunMonkey.subTowers;
     {
         //public override string Name => "Shotgun Monkey";
         public override TowerSet TowerSet => TowerSet.Support;
-        public override string BaseTower => TowerType.DartMonkey;;\
+        public override string BaseTower => TowerType.DartMonkey;
         public override int Cost => 450; //400+250-
         public override string Description => "Shotgun Monkey.";
         public override string DisplayName => "Shotgun Sentry";
