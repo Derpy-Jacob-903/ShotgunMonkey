@@ -201,7 +201,18 @@ namespace ShotgunMonkey.Upgrades
             //towerModel.AddBehavior(Game.instance.model.GetTowerFromId("Alchemist-200").GetAttackModel("AcidicMixture").Duplicate());
             //var DoubleBarrelBuff = new AddBerserkerBrewToProjectileModel("DoubleBarrelBuff", "DoubleBarrelBuff",)
             //var A = towerModel.GetAttackModel("AcidicMixture");
-            towerModel.GetWeapon().rate *= 0.5f;
+            
+            //var rate = towerModel.GetWeapon().rate
+            var rateDown = towerModel.GetWeapon().rate
+            rateDown *= -0.6f
+            towerModel.GetWeapon().rate *= 0.4f;
+            towerModel.AddBehavior(new DamageBasedAttackSpeedModel();
+            "damageThreshold": 1.0,
+            "increasePerThreshold": rateDown,
+            "maxStacks": 1,
+            "maxTimeInFramesWithoutDamage": 199,
+            "name": "DamageBasedAttackSpeedModel_",
+            //towerModel.GetWeapon().rate *= 0.5f;
             //.7
 
         }
