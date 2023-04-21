@@ -202,9 +202,9 @@ namespace ShotgunMonkey.Upgrades
             //var DoubleBarrelBuff = new AddBerserkerBrewToProjectileModel("DoubleBarrelBuff", "DoubleBarrelBuff",)
             //var A = towerModel.GetAttackModel("AcidicMixture");
             
-            //var rate = towerModel.GetWeapon().rate
-            var rateDown = towerModel.GetWeapon().rate
-            rateDown *= -0.6f
+            //var rate = towerModel.GetWeapon().rate;
+            var rateDown = towerModel.GetWeapon().rate;
+            rateDown *= -0.6f;
             towerModel.GetWeapon().rate *= 0.4f;
             //towerModel.AddBehavior(new DamageBasedAttackSpeedModel();
             //
