@@ -33,9 +33,9 @@ public class ShotgunMonkeyMod : BloonsTD6Mod
         public override int Cost => 450; //400+250-
         public override string Description => "Shotgun Monkey.";
         public override string DisplayName => "Shotgun Monkey";
-        public override int TopPathUpgrades => 3;
-        public override int MiddlePathUpgrades => 3;
-        public override int BottomPathUpgrades => 3;
+        public override int TopPathUpgrades => 4;
+        public override int MiddlePathUpgrades => 4;
+        public override int BottomPathUpgrades => 5;
         //public override ParagonMode ParagonMode => ParagonMode.Base555;
         public override void ModifyBaseTowerModel(TowerModel towerModel)
         {
@@ -43,17 +43,20 @@ public class ShotgunMonkeyMod : BloonsTD6Mod
             //towerModel.GetBehavior<DisplayModel>().display = towerModel.display;
             towerModel.ApplyDisplay<TowerDisplays.Display000>();
 
-            towerModel.range = 20;
+            towerModel.range = 40;
 
             var attackModel = towerModel.GetAttackModel();
-            attackModel.range = 20;
+            attackModel.range = 40;
             //attackModel.weapons[0] = Game.instance.model.GetTowerFromId("Druid-010").GetAttackModel().weapons[0].Duplicate();
             //attackModel.AddWeapon(Game.instance.model.GetTowerFromId("Sauda").GetAttackModel().weapons[0].Duplicate());
             var projectileModel = towerModel.GetAttackModel().GetDescendant<ProjectileModel>();
             var projectile = attackModel.weapons[0].projectile;
 
             attackModel.weapons[0].projectile = Game.instance.model.GetTowerFromId("SniperMonkey-020").GetAttackModel().GetDescendant<ProjectileModel>().GetDescendant<EmitOnDamageModel>().GetDescendant<ProjectileModel>().Duplicate(); //Gets the
-            towerModel.GetWeapon().emission = new RandomEmissionModel("RandomEmissionModel_", 8, 60f, 0f, null, false, 1f, 1f, 1f, false);
+            if (!(towerModel.GetUpgradeLevel(1) >= 3))
+            {
+                towerModel.GetWeapon().emission = new RandomEmissionModel("RandomEmissionModel_", 8, 60f, 0f, null, false, 1f, 1f, 1f, false);
+            }
             towerModel.GetWeapon().rate = Game.instance.model.GetTowerFromId("SniperMonkey").GetAttackModel().weapons[0].rate;
             //towerModel.GetWeapon().rate *= 2f;
             //projectile.ApplyDisplay<ShrapnelDisplay>();
@@ -83,8 +86,12 @@ public class ShotgunMonkeyMod : BloonsTD6Mod
         }
         public class BombDisplay : ModDisplay
         {
-            public override string BaseDisplay => "fcddee8a92f5d2e4d8605a8924566620"; //Assets/Monkeys/DartMonkey/Graphics/Projectiles/SpikeOPultProjectile.prefab
+            public override string BaseDisplay => "4bce3e766a25dc74085e2427d1db6160"; //Assets/Monkeys/BombShooter/Graphics/Projectiles/Bomb.prefab
         }
+        //public class BombDisplay2 : ModDisplay
+        //{
+        //    public override string BaseDisplay => "fcddee8a92f5d2e4d8605a8924566620"; //Assets/Monkeys/DartMonkey/Graphics/Projectiles/SpikeOPultProjectile.prefab
+        //}
         public class BuckDisplay : ModDisplay
         {
             public override string BaseDisplay => "fcddee8a92f5d2e4d8605a8924566620"; //Assets/Monkeys/DartMonkey/Graphics/Projectiles/SpikeOPultProjectile.prefab
@@ -110,7 +117,7 @@ public class ShotgunMonkeyMod : BloonsTD6Mod
                 node.PrintInfo();
                 node.SaveMeshTexture();
 #endif
-                //node.RemoveBone("SniperMonkey:Dart"); //
+                //node.RemoveBone("FlatSkin_SniperMonkey_NightVisionGoggles"); 
             }
         }
         public class Displayx1x : ModDisplay
@@ -127,7 +134,8 @@ public class ShotgunMonkeyMod : BloonsTD6Mod
                 node.PrintInfo();
                 node.SaveMeshTexture();
 #endif
-                //node.RemoveBone("SniperMonkey:Dart"); //
+
+                //node.RemoveBone("FlatSkin_SniperMonkey_NightVisionGoggles");
             }
 
         }

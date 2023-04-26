@@ -10,5 +10,13 @@
         <DebugType>embedded</DebugType>
     </PropertyGroup>
 
-    <Import Project="..\btd6.targets"/>
+    <Import Project="..\btd6.targets" />
+
+    <ItemGroup>
+      <Compile Remove="SubTowers\subTowers.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="SubTowers\subTowers.cs" />
+    </ItemGroup>
 </Project>
