@@ -222,15 +222,7 @@ namespace ShotgunMonkey.Upgrades
         {
             var attackModel = towerModel.GetAttackModel();
             var projectile = attackModel.weapons[0].projectile;
-<<<<<<< Updated upstream
-            //towerModel.AddBehavior(Game.instance.model.GetTowerFromId("Alchemist-200").GetAttackModel("AcidicMixture").Duplicate());
-            //var DoubleBarrelBuff = new AddBerserkerBrewToProjectileModel("DoubleBarrelBuff", "DoubleBarrelBuff",)
-            //var A = towerModel.GetAttackModel("AcidicMixture");
-            towerModel.GetWeapon().rate *= 0.5f;
-            //.7
-=======
             projectile.pierce = 1;
->>>>>>> Stashed changes
 
             //var emission = towerModel.GetWeapon().emission;
             //towerModel.GetWeapon().RemoveBehaviors<EmissionModel>();
@@ -339,9 +331,6 @@ namespace ShotgunMonkey.Upgrades
             towerModel.ApplyDisplay<Displayx2x>();
         }
     }
-<<<<<<< Updated upstream
-}
-=======
     public class DoubleBarrelShotgun : ModUpgrade<ShotgunMonkeyMod.ShotgunMonkey>
         {
             public override int Path => BOTTOM;
@@ -491,5 +480,3 @@ namespace ShotgunMonkey.Upgrades
             }
         }
     }
-
->>>>>>> Stashed changes
