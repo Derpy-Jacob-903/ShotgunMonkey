@@ -55,8 +55,8 @@ namespace ShotgunMonkey;
         //towerModel.GetWeapon().rate *= 2f;
         //projectile.ApplyDisplay<ShrapnelDisplay>();
         //var cock = new CreateTypedTowerModel("CreateTypedTowerModel_", GetTowerModel<subTowers.SlugSentry>(), GetTowerModel<subTowers.ExSlugSentry>(), GetTowerModel<subTowers.ShotgunSentry>(), GetTowerModel<subTowers.DragonsBreathSentry>(), CreatePrefabReference("95f0e98e9602cab4fb4f1dcc6d01653a"), CreatePrefabReference("02712b0bdfcd72b4f8bebf853ab75d70"), CreatePrefabReference("eccb1724c4f6bae4492f34509cdcda66"), CreatePrefabReference("5bb9342d838c0d848ab4ccb4f078114f"));
-        // towerModel.GetAttackModels()[1].GetDescendant<ProjectileModel>().RemoveBehavior<CreateTypedTowerModel>();
-        ///towerModel.GetAttackModels()[1].GetDescendant<ProjectileModel>().AddBehavior<CreateTypedTowerModel>(new CreateTypedTowerModel("CreateTypedTowerModel_", GetTowerModel<subTowers.SlugSentry>(), GetTowerModel<subTowers.ExSlugSentry>(), GetTowerModel<subTowers.ShotgunSentry>(), GetTowerModel<subTowers.DragonsBreathSentry>(), CreatePrefabReference("333ed0c466512f94cace6f41b0a91fe9"), CreatePrefabReference("333ed0c466512f94cace6f41b0a91fe9"), CreatePrefabReference("333ed0c466512f94cace6f41b0a91fe9"), CreatePrefabReference("333ed0c466512f94cace6f41b0a91fe9")));
+        // towerModel.GetAttackModel("Spawner")GetDescendant<ProjectileModel>().RemoveBehavior<CreateTypedTowerModel>();
+        ///towerModel.GetAttackModel("Spawner").GetDescendant<ProjectileModel>().AddBehavior<CreateTypedTowerModel>(new CreateTypedTowerModel("CreateTypedTowerModel_", GetTowerModel<subTowers.SlugSentry>(), GetTowerModel<subTowers.ExSlugSentry>(), GetTowerModel<subTowers.ShotgunSentry>(), GetTowerModel<subTowers.DragonsBreathSentry>(), CreatePrefabReference("333ed0c466512f94cace6f41b0a91fe9"), CreatePrefabReference("333ed0c466512f94cace6f41b0a91fe9"), CreatePrefabReference("333ed0c466512f94cace6f41b0a91fe9"), CreatePrefabReference("333ed0c466512f94cace6f41b0a91fe9")));
         //projectileModel1.weapons[1].GetDamageModel().immuneBloonProperties = BloonProperties.Black;
 
 
