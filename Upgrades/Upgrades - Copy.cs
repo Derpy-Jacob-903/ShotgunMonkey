@@ -16,6 +16,8 @@ using Il2CppSystem.Runtime.Remoting.Lifetime;
 using Il2CppAssets.Scripts.Simulation.Towers.Projectiles.Behaviors;
 using Harmony;
 using Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors;
+using ShotgunMonkey.subTowers.EEngineer;
+using Il2CppAssets.Scripts.Unity.Display;
 
 namespace ShotgunMonkey.EngineerUpgrades
 {
@@ -164,6 +166,73 @@ namespace ShotgunMonkey.EngineerUpgrades
 
             towerModel.ApplyDisplay<Displayxx2>();
         }
+    }
+}
+namespace ShotgunMonkey.EngineerDisplays
+{
+    public class D000 : ModDisplay
+    {
+        public override string BaseDisplay => Game.instance.model.GetTower("SniperMonkey", 0, 0, 0).display.GUID;
+
+    }
+    public class D1xx : ModDisplay
+    {
+        public override string BaseDisplay => Game.instance.model.GetTower("SniperMonkey", 1, 0, 0).display.GUID;
+
+    }
+    public class Display2xx : ModDisplay
+    {
+        public override string BaseDisplay => Game.instance.model.GetTower("SniperMonkey", 1, 2, 0).display.GUID;
+        public override void ModifyDisplayNode(UnityDisplayNode node)
+        {
+#if DEBUG
+            node.PrintInfo();
+            node.SaveMeshTexture();
+#endif
+            //node.RemoveBone("FlatSkin_SniperMonkey_NightVisionGoggles"); 
+        }
+    }
+    public class Displayx1x : ModDisplay
+    {
+        public override string BaseDisplay => Game.instance.model.GetTower("SniperMonkey", 1, 0, 0).display.GUID;
+
+    }
+    public class Displayx2x : ModDisplay
+    {
+        public override string BaseDisplay => Game.instance.model.GetTower("SniperMonkey", 0, 1, 0).display.GUID;
+        public override void ModifyDisplayNode(UnityDisplayNode node)
+        {
+#if DEBUG
+            node.PrintInfo();
+            node.SaveMeshTexture();
+#endif
+
+            //node.RemoveBone("FlatSkin_SniperMonkey_NightVisionGoggles");
+        }
+
+    }
+    public class Displayxx1 : ModDisplay
+    {
+        public override string BaseDisplay => Game.instance.model.GetTower("SniperMonkey", 0, 0, 1).display.GUID;
+
+    }
+    public class Displayxx2 : ModDisplay
+    {
+        public override string BaseDisplay => Game.instance.model.GetTower("SniperMonkey", 0, 0, 2).display.GUID;
+    }
+    public class Display3xx : ModDisplay
+    {
+        public override string BaseDisplay => Game.instance.model.GetTower("SniperMonkey", 3, 0, 0).display.GUID;
+
+    }
+    public class Displayx3x : ModDisplay
+    {
+        public override string BaseDisplay => Game.instance.model.GetTower("SniperMonkey", 0, 3, 0).display.GUID;
+    }
+    public class Displayxx3 : ModDisplay
+    {
+        public override string BaseDisplay => Game.instance.model.GetTower("SniperMonkey", 0, 0, 3).display.GUID;
+
     }
 }
 

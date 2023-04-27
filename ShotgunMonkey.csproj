@@ -17,6 +17,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="SubTowers\subTowers.cs" />
+      <None Include="ShotgunSentries.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="SubTowers\" />
     </ItemGroup>
 </Project>
