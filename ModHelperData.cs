@@ -3,7 +3,7 @@ namespace ShotgunMonkey;
 public static class ModHelperData
 {
     public const string WorksOnVersion = "36.1";
-    public const string Version = "InDev"; //0.0.1
+    public const string Version = "0.1.0"; //0.0.1
     public const string Name = "Shotgun Monkey";
 
     public const string Description = "Adds a monkey with a shotgun.";
