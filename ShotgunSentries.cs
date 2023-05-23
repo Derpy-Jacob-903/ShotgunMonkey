@@ -18,14 +18,6 @@ using static ShotgunMonkey.ShotgunMonkeyMod.TowerDisplays;
 using Il2Cpp;
 
 namespace ShotgunMonkey.subTowers;
-public class TestSet : ModTowerSet
-{
-	public override string DisplayName => "Test";
-	public override string Container => "PokemonContainer";
-	public override string Button => "PokemonButton";
-	public override string ContainerLarge => "PokemonContainer";
-	public override string Portrait => "PokemonPortrait";
-}
 public class ShotgunSentry : ModTower
 {
 	//public override string Name => "Shotgun Monkey";

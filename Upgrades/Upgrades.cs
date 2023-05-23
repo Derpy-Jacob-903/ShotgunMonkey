@@ -407,47 +407,47 @@ namespace ShotgunMonkey.Upgrades
 
             }
         }
-        public class DrumMagazine : ModUpgrade<ShotgunMonkeyMod.ShotgunMonkey>
-        {
-            public override int Path => BOTTOM;
-            public override int Tier => 5;
-            public override int Cost => 21500; //140+220
+        //public class DrumMagazine : ModUpgrade<ShotgunMonkeyMod.ShotgunMonkey>
+        //{
+            //public override int Path => BOTTOM;
+            //public override int Tier => 5;
+            //public override int Cost => 21500; //140+220
                                              //public override string Portrait => "BlitzaPortrait";
-            public override SpriteReference IconReference => Game.instance.model.GetTowerFromId("MonkeyBuccaneer").GetUpgrade(TOP, 2).icon;
-            public override string Description => "Drum magazines fires very fast."; //R9-0 MW 2019
+            //public override SpriteReference IconReference => Game.instance.model.GetTowerFromId("MonkeyBuccaneer").GetUpgrade(TOP, 2).icon;
+            //public override string Description => "Drum magazines fires very fast."; //R9-0 MW 2019
                                                                                               //public override string DisplayName => "Sleight of Hand";
 
-            public override void ApplyUpgrade(TowerModel towerModel)
-            {
-                var attackModel = towerModel.GetAttackModel();
+            //public override void ApplyUpgrade(TowerModel towerModel)
+            //{
+            //    var attackModel = towerModel.GetAttackModel();
 
-                towerModel.ApplyDisplay<Displayxx3>();
-                var projectile = attackModel.weapons[0].projectile;
+            //    towerModel.ApplyDisplay<Displayxx3>();
+            //    var projectile = attackModel.weapons[0].projectile;
 
 
-                towerModel.GetWeapon().rate *= 0.5f;
+            //    towerModel.GetWeapon().rate *= 0.5f;
                 //var attackModel = towerModel.GetAttackModel();
-                towerModel.ApplyDisplay<Display3xx>();
-                var fireAttackModel = Game.instance.model.GetTowerFromId("DartlingGunner").GetAttackModel().Duplicate();
-                var fireTowerModel = Game.instance.model.GetTowerFromId("DartlingGunner");
+            //    towerModel.ApplyDisplay<Display3xx>();
+            //    var fireAttackModel = Game.instance.model.GetTowerFromId("DartlingGunner").GetAttackModel().Duplicate();
+            //    var fireTowerModel = Game.instance.model.GetTowerFromId("DartlingGunner");
                 //fireAttackModel.GetBehavior<AddBehaviorToBloonModel>().isUnique = false;
 
-                attackModel.AddBehavior(fireAttackModel.GetBehavior<TargetPointerModel>());
-                attackModel.AddBehavior(fireAttackModel.GetBehavior<RotateToPointerModel>());
-                attackModel.AddBehavior(fireAttackModel.GetBehavior<TargetSelectedPointModel>());
-                towerModel.towerSelectionMenuThemeId = "ActionButton";
+            //    attackModel.AddBehavior(fireAttackModel.GetBehavior<TargetPointerModel>());
+            //    attackModel.AddBehavior(fireAttackModel.GetBehavior<RotateToPointerModel>());
+            //    attackModel.AddBehavior(fireAttackModel.GetBehavior<TargetSelectedPointModel>());
+            //    towerModel.towerSelectionMenuThemeId = "ActionButton";
                 //towerModel.towerSelectionMenuThemeId = "SuperMonkey";
 
-                towerModel.targetTypes = towerModel.TargetTypes.AddTo(fireTowerModel.targetTypes.Duplicate());
-                towerModel.TargetTypes = towerModel.TargetTypes.AddTo(fireTowerModel.TargetTypes.Duplicate());
-                towerModel.targetTypes[0].intID = -2;
-                towerModel.TargetTypes[0].intID = -2;
+            //    towerModel.targetTypes = towerModel.TargetTypes.AddTo(fireTowerModel.targetTypes.Duplicate());
+            //    towerModel.TargetTypes = towerModel.TargetTypes.AddTo(fireTowerModel.TargetTypes.Duplicate());
+             //   towerModel.targetTypes[0].intID = -2;
+            //    towerModel.TargetTypes[0].intID = -2;
 
                 //attackModel.weapons[0].projectile.AddBehavior(fireProjectile.GetBehavior<AddBehaviorToBloonModel>());
                 //projectile.GetDamageModel().immuneBloonProperties = BloonProperties.Purple;
 
-            }
-        }
+            //}
+        //}
         public class DragonsBreath : ModUpgrade<ShotgunMonkeyMod.ShotgunMonkey>
         {
             public override int Path => TOP;

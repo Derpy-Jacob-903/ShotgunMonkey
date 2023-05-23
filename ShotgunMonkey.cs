@@ -28,14 +28,14 @@ public class ShotgunMonkeyMod : BloonsTD6Mod
     public class ShotgunMonkey : ModTower
     {
         public override string Name => "Shotgun Monkey";
-        public override TowerSet TowerSet => TowerSet.Support;
+        public override TowerSet TowerSet => TowerSet.Military;
         public override string BaseTower => TowerType.DartMonkey;
         public override int Cost => 450; //400+250-
         public override string Description => "Shotgun Monkey.";
         public override string DisplayName => "Shotgun Monkey";
         public override int TopPathUpgrades => 4;
         public override int MiddlePathUpgrades => 4;
-        public override int BottomPathUpgrades => 5;
+        public override int BottomPathUpgrades => 4;
         //public override ParagonMode ParagonMode => ParagonMode.Base555;
         public override void ModifyBaseTowerModel(TowerModel towerModel)
         {
